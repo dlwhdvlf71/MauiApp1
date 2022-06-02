@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.TimerPage"
+             Title="TimerPage" Padding="20">
+    <StackLayout Spacing="30">
+        <Label x:Name="mainTimerLabel" Text="00:00:00" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
+            <Button Text="Start" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center" x:Name="startAndStopButton" Clicked="startAndStopButton_Clicked"></Button>
+            <Button Text="Reset" FontSize="15" HorizontalOptions="Center" x:Name="resetButton" Clicked="resetButton_Clicked"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
