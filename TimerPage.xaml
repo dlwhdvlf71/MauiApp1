@@ -3,6 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.TimerPage"
              Title="TimerPage" Padding="20">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="studentTemplate">
+            <Label Text="{Binding name}"></Label>
+        </DataTemplate>
+
+        <DataTemplate x:Key="schoolTemplate">
+            <Label Text="{Binding name}"></Label>
+        </DataTemplate>
+    
+    </ContentPage.Resources>
+    
     <StackLayout Spacing="30">
         <Label x:Name="mainTimerLabel" Text="00:00:00" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
 
@@ -10,5 +22,9 @@
             <Button Text="Start" FontSize="15" VerticalOptions="Center" HorizontalOptions="Center" x:Name="startAndStopButton" Clicked="startAndStopButton_Clicked"></Button>
             <Button Text="Reset" FontSize="15" HorizontalOptions="Center" x:Name="resetButton" Clicked="resetButton_Clicked"></Button>
         </StackLayout>
+
+        <CarouselView ItemsSource="" ItemTemplate="">
+            
+        </CarouselView>
     </StackLayout>
 </ContentPage>
