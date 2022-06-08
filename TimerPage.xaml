@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Selector="clr-namespace:MauiApp1.Selector"
+             xmlns:local="clr-namespace:MauiApp1"
              x:Class="MauiApp1.TimerPage"
              Title="TimerPage" Padding="20">
 
     <ContentPage.Resources>
-        <DataTemplate x:Key="studentTemplate">
-            <Label Text="{Binding name}"></Label>
+        <DataTemplate x:Key="manTemplate">
+            <StackLayout>
+                <Label Text="Man" TextColor="Black" FontSize="20"></Label>
+                <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+            </StackLayout>
         </DataTemplate>
 
-        <DataTemplate x:Key="schoolTemplate">
-            <Label Text="{Binding name}"></Label>
+        <DataTemplate x:Key="womanTemplate">
+            <StackLayout>
+                <Label Text="Woman" TextColor="Black" FontSize="20"></Label>
+                <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+            </StackLayout>
         </DataTemplate>
+
+        <Selector:StudentSelector x:Key="studentSelector"
+                                  ManTemplate="{StaticResource manTemplate}"
+                                  WomanTemplate="{StaticResource womanTemplate}">
+        </Selector:StudentSelector>
     
     </ContentPage.Resources>
+
     
     <StackLayout Spacing="30">
+        <!--<CarouselView ItemsSource="{Binding students}" ItemTemplate="{StaticResource studentSelector}">
+
+        </CarouselView>-->
+
         <Label x:Name="mainTimerLabel" Text="00:00:00" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
@@ -23,8 +41,18 @@
             <Button Text="Reset" FontSize="15" HorizontalOptions="Center" x:Name="resetButton" Clicked="resetButton_Clicked"></Button>
         </StackLayout>
 
-        <CarouselView ItemsSource="" ItemTemplate="">
-            
-        </CarouselView>
+        <!--<ListView x:Name="listview">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="TEST"></Label>
+                        <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+                    </StackLayout>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+        
+        
     </StackLayout>
 </ContentPage>
