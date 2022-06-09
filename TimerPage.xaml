@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Selector="clr-namespace:MauiApp1.Selector"
              xmlns:local="clr-namespace:MauiApp1"
+             xmlns:Selector="clr-namespace:MauiApp1.Selector"
+             xmlns:data="clr-namespace:MauiApp1.Class"
              x:Class="MauiApp1.TimerPage"
              Title="TimerPage" Padding="20">
 
@@ -30,9 +31,9 @@
 
     
     <StackLayout Spacing="30">
-        <!--<CarouselView ItemsSource="{Binding students}" ItemTemplate="{StaticResource studentSelector}">
+        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}">
 
-        </CarouselView>-->
+        </CarouselView>
 
         <Label x:Name="mainTimerLabel" Text="00:00:00" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
 
@@ -41,17 +42,20 @@
             <Button Text="Reset" FontSize="15" HorizontalOptions="Center" x:Name="resetButton" Clicked="resetButton_Clicked"></Button>
         </StackLayout>
 
-        <!--<ListView x:Name="listview">
+        <ListView ItemsSource="{x:Static data:Student.All}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
-                        <Label Text="TEST"></Label>
-                        <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
-                    </StackLayout>
-                    
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="test"></Label>
+                            <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
+        </ListView>
+
+        <Label Text="End"></Label>
         
         
     </StackLayout>

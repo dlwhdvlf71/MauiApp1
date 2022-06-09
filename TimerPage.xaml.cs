@@ -7,26 +7,22 @@ public partial class TimerPage : ContentPage
     private bool isRunning = false;
     private TimeOnly timeOnly = new TimeOnly();
 
-    private List<Student> _students;
-    public List<Student> students
-    {
-        get { return _students; }
-        set { _students = value; }
-    }
+    //public static IEnumerable<Student> students
+    //{
+    //    get;
+    //    private set;
+    //}
 
     public TimerPage()
 	{
 		InitializeComponent();
 
-        _students = new List<Student>()
-        {
-            new Student() { Name = "ȫ�浿1", Age = 29, Gender = "M" }
-            , new Student() { Name = "ȫ�浿2", Age = 22, Gender = "W" }
-            , new Student() { Name = "ȫ�浿3", Age = 18, Gender = "M" }
-        };
-
-        //listview.ItemsSource = _students;
-
+        //students = new List<Student>()
+        //{
+        //    new Student() { Name = "ȫ�浿1", Age = 29, Gender = "M" }
+        //    , new Student() { Name = "ȫ�浿2", Age = 22, Gender = "W" }
+        //    , new Student() { Name = "ȫ�浿3", Age = 18, Gender = "M" }
+        //};
     }
 
     private async void startAndStopButton_Clicked(object sender, EventArgs e)
