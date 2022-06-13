@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
+             x:Class="MauiApp1.XamlSample01"
+             Title="XamlSample01">
+    <!--<ContentPage.BindingContext>
+        <viewmodel:ClockViewModel></viewmodel:ClockViewModel>
+    </ContentPage.BindingContext>-->
+
+    <!--<ContentPage.Resources>
+        <viewmodel:StopWatchTime x:Key="stopWatchTime"></viewmodel:StopWatchTime>
+
+    </ContentPage.Resources>-->
+
+    <ContentPage.BindingContext>
+        <viewmodel:StopWatchTime></viewmodel:StopWatchTime>
+    </ContentPage.BindingContext>
+    
+    
+    <StackLayout>
+        <!--<Label Text="{Binding currentTime, StringFormat='{0:T}'}"></Label>-->
+        <Label Text="{Binding currentStopWatch}"></Label>
+        
+    </StackLayout>
+</ContentPage>

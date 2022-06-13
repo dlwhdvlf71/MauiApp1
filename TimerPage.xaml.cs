@@ -38,10 +38,8 @@ public partial class TimerPage : ContentPage
             mainTimerLabel.Text = $"{timeOnly.Hour.ToString("00")}:{timeOnly.Minute.ToString("00")}:{timeOnly.Second.ToString("00")}";
             //mainTimerLabel.Text = timeOnly.ToString("hh:mm");
 
-
             await Task.Delay(TimeSpan.FromSeconds(1));
         }
-
     }
 
     private async void resetButton_Clicked(object sender, EventArgs e)
