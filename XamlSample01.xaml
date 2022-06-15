@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             
+             xmlns:local="clr-namespace:MauiApp1"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:Class="MauiApp1.XamlSample01"
              Title="XamlSample01">
@@ -20,6 +20,7 @@
     
     
     <StackLayout>
+        <Label Text="{x:Static local:TestClass.test}"></Label>
         <!--<Label Text="{Binding currentTime, StringFormat='{0:T}'}"></Label>-->
         <Label Text="{Binding currentStopWatch}"></Label>
         

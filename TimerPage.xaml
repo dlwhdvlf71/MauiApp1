@@ -9,9 +9,19 @@
 
     <ContentPage.Resources>
         <DataTemplate x:Key="manTemplate">
-            <StackLayout>
-                <Label Text="Man" TextColor="Black" FontSize="20"></Label>
-                <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Beige">
+                <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    
+                    <!--<BoxView Color="AliceBlue" WidthRequest="300" HeightRequest="300" CornerRadius="200" HorizontalOptions="Start">
+                    </BoxView>-->
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Brown">
+                        <Label Text="Man" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand"></Label>
+                        <Label Text="{Binding Name}" TextColor="Black" FontSize="20" ></Label>
+                    </StackLayout>
+                </AbsoluteLayout>
+                
+                
             </StackLayout>
         </DataTemplate>
 
@@ -30,11 +40,16 @@
     </ContentPage.Resources>
 
     
-    <StackLayout Spacing="30">
-        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}">
-
+    <StackLayout Spacing="10">
+        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" PeekAreaInsets="30">
+            <CarouselView.ItemsLayout>
+                <LinearItemsLayout SnapPointsType="Mandatory" SnapPointsAlignment="Center">
+                    
+                </LinearItemsLayout>
+            </CarouselView.ItemsLayout>
         </CarouselView>
 
+        
         <Label x:Name="mainTimerLabel" Text="00:00:00" FontSize="40" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10">
@@ -42,7 +57,7 @@
             <Button Text="Reset" FontSize="15" HorizontalOptions="Center" x:Name="resetButton" Clicked="resetButton_Clicked"></Button>
         </StackLayout>
 
-        <ListView ItemsSource="{x:Static data:Student.All}">
+        <!--<ListView ItemsSource="{x:Static data:Student.All}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -53,9 +68,8 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
 
-        <Label Text="End"></Label>
         
         
     </StackLayout>
