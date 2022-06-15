@@ -8,10 +8,45 @@
              Title="TimerPage" Padding="20">
 
     <ContentPage.Resources>
+        
         <DataTemplate x:Key="manTemplate">
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Beige">
+
+                <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="CurrentItem">
+                            <VisualState.Setters>
+                                <Setter Property="Scale"
+                                        Value="1.1" />
+                                <Setter Property="WidthRequest" Value="150"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="PreviousItem">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                                <Setter Property="WidthRequest" Value="70"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="NextItem">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                                <Setter Property="WidthRequest" Value="70"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="DefaultItem">
+                            <VisualState.Setters>
+                                <Setter Property="Opacity"
+                                        Value="1" />
+                                <Setter Property="WidthRequest" Value="70"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+
                 <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    
+
                     <!--<BoxView Color="AliceBlue" WidthRequest="300" HeightRequest="300" CornerRadius="200" HorizontalOptions="Start">
                     </BoxView>-->
 
@@ -26,7 +61,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="womanTemplate">
-            <StackLayout>
+            <StackLayout BackgroundColor="Aqua">
                 <Label Text="Woman" TextColor="Black" FontSize="20"></Label>
                 <Label Text="{Binding Name}" TextColor="Black" FontSize="20"></Label>
             </StackLayout>
@@ -41,12 +76,10 @@
 
     
     <StackLayout Spacing="10">
-        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" PeekAreaInsets="30">
+        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" PeekAreaInsets="80" Loop="False">
             <CarouselView.ItemsLayout>
-                <LinearItemsLayout SnapPointsType="Mandatory" SnapPointsAlignment="Center">
-                    
-                </LinearItemsLayout>
-            </CarouselView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20" SnapPointsAlignment="Center"></LinearItemsLayout>
+            </CarouselView.ItemsLayout> 
         </CarouselView>
 
         
