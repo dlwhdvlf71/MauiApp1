@@ -52,6 +52,7 @@
                     </BoxView>-->
 
                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="Brown">
+
                         <Label Text="Man" TextColor="Black" FontSize="20" HorizontalOptions="CenterAndExpand"></Label>
                         <Label Text="{Binding Name}" TextColor="Black" FontSize="20" ></Label>
                     </StackLayout>
@@ -77,7 +78,7 @@
 
     
     <StackLayout Spacing="10">
-        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" PeekAreaInsets="80" Loop="False" PositionChanged="CarouselView_PositionChanged">
+        <CarouselView ItemsSource="{x:Static data:Student.All}" ItemTemplate="{StaticResource studentSelector}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" PeekAreaInsets="80" Loop="False" CurrentItemChanged="CarouselView_CurrentItemChanged">
             <CarouselView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20" SnapPointsAlignment="Center"></LinearItemsLayout>
             </CarouselView.ItemsLayout> 

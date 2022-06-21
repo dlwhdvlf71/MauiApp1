@@ -52,15 +52,15 @@ public partial class TimerPage : ContentPage
         await Task.Delay(TimeSpan.FromSeconds(1));
     }
 
-    private void CarouselView_PositionChanged(object sender, PositionChangedEventArgs e)
+    private void CarouselView_CurrentItemChanged(object sender, CurrentItemChangedEventArgs e)
     {
-        try
-        {
+        Student preStudent = e.PreviousItem as Student;
+        Student currentStudent = e.CurrentItem as Student;
+        
 
-        }
-        catch (Exception ex)
-        {
+        Console.WriteLine();
 
-        }
+
+
     }
 }
