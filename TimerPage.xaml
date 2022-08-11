@@ -16,6 +16,7 @@
                     <VisualStateGroup x:Name="CommonStates">
                         
                         <VisualState x:Name="CurrentItem">
+                            
                             <VisualState.Setters>
                                 <Setter Property="Scale"
                                         Value="1.1" />
