@@ -8,7 +8,7 @@ namespace MauiApp1.Class
 {
     static class StaticClass
     {
-        public static readonly Color TestColor = Colors.Aqua;
-
+        public static readonly Color TestColor = Colors.Chocolate;
+        public static readonly double width = 100;
     }
 }

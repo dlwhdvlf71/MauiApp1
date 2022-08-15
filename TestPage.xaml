@@ -7,9 +7,9 @@
 
     <ContentPage.Resources>
 
-        <LayoutOptions x:Key="horzOptions" Alignment="Start"  />
+        <LayoutOptions x:Key="horzOptions" Alignment="Center"  />
 
-        <LayoutOptions x:Key="vertiOptions" Alignment="Start">
+        <LayoutOptions x:Key="vertiOptions" Alignment="Center">
         </LayoutOptions>
 
         <OnPlatform x:Key="textColor" x:TypeArguments="Color">
@@ -48,5 +48,14 @@
             TextColor="{x:Static local:StaticClass.TestColor}"
             FontSize="20"
             ></Label>
+
+        <BoxView HorizontalOptions="{StaticResource horzOptions}"
+                 VerticalOptions="CenterAndExpand"
+                 WidthRequest="{x:Static local:StaticClass.width}"
+                 HeightRequest="300"
+                 Color="{x:Static local:StaticClass.TestColor}"
+                 >
+            
+        </BoxView>
     </StackLayout>
 </ContentPage>
