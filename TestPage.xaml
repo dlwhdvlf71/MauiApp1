@@ -5,57 +5,25 @@
              x:Class="MauiApp1.TestPage"
              Title="TestPage" Padding="20">
 
-    <ContentPage.Resources>
-
-        <LayoutOptions x:Key="horzOptions" Alignment="Center"  />
-
-        <LayoutOptions x:Key="vertiOptions" Alignment="Center">
-        </LayoutOptions>
-
-        <OnPlatform x:Key="textColor" x:TypeArguments="Color">
-            <On Platform="iOS" Value="Red"></On>
-            <On Platform="Android" Value="Blue"></On>
-        </OnPlatform>
-        
-    </ContentPage.Resources>
-    
     <StackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
         <Label
-            Text="Text Number 1"
-            HorizontalOptions="{StaticResource horzOptions}"
-            VerticalOptions="{StaticResource vertiOptions}"
-            TextColor="{StaticResource textColor}"
-            FontSize="20"
-            ></Label>
-
-        <Label
-            Text="Text Number 2"
-            HorizontalOptions="{StaticResource horzOptions}"
-            VerticalOptions="{StaticResource vertiOptions}"
-            TextColor="{x:Static Colors.Red}"
-            FontSize="20"
-            ></Label>
-
-        <Label
-            Text="Text Number 3"
-            HorizontalOptions="{StaticResource horzOptions}"
-            VerticalOptions="{StaticResource vertiOptions}"
-            TextColor="{x:Static local:StaticClass.TestColor}"
-            FontSize="20"
-            ></Label>
-
-        <BoxView HorizontalOptions="{StaticResource horzOptions}"
-                 VerticalOptions="CenterAndExpand"
-                 WidthRequest="{x:Static local:StaticClass.width}"
-                 HeightRequest="300"
-                 Color="{x:Static local:StaticClass.TestColor}"
-                 >
-            
-        </BoxView>
+            x:Name="lbael1"
+               Text="Data Binding"
+              
+               FontAttributes="Bold"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
+        <Slider x:Name="slider"
+                Maximum="1"
+                VerticalOptions="Center"
+                Value="{Binding Opacity, Source={x:Reference lbael1}, Mode=OneWayToSource}"
+                />
+        <Label BindingContext="{x:Reference slider}"
+               Text="{Binding Value, StringFormat='Value is {0:#,##0}'}"
+               FontAttributes="Bold"
+               FontSize="18"
+               HorizontalOptions="Center"
+               VerticalOptions="Center" />
     </StackLayout>
 </ContentPage>
