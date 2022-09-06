@@ -5,25 +5,20 @@
              x:Class="MauiApp1.TestPage"
              Title="TestPage" Padding="20">
 
+    <ContentPage.BindingContext>
+        <local:ColorViewModel Color="Beige"></local:ColorViewModel>
+    </ContentPage.BindingContext>
+    
     <StackLayout>
-        <Label
-            x:Name="lbael1"
-               Text="Data Binding"
-              
-               FontAttributes="Bold"
-               FontSize="18"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <Slider x:Name="slider"
-                Maximum="1"
-                VerticalOptions="Center"
-                Value="{Binding Opacity, Source={x:Reference lbael1}, Mode=OneWayToSource}"
-                />
-        <Label BindingContext="{x:Reference slider}"
-               Text="{Binding Value, StringFormat='Value is {0:#,##0}'}"
-               FontAttributes="Bold"
-               FontSize="18"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
+
+        <BoxView HeightRequest="300" Color="{Binding Color}"></BoxView>
+
+        <Slider x:Name="hueSlider" Value="{Binding Hue}"></Slider>
+        <Label BindingContext="{x:Reference hueSlider}" Text="{Binding Value, Mode=OneWay, StringFormat='Hue {0:F2}'}" HorizontalOptions="Center"></Label>
+        <Slider x:Name="luminositySlider" Value="{Binding Luminosity}"></Slider>
+        <Label BindingContext="{x:Reference luminositySlider}" Text="{Binding Value, Mode=OneWay, StringFormat='Luminosity {0:F2}'}" HorizontalOptions="Center"></Label>
+        <Slider x:Name="saturationSlider" Value="{Binding Saturation}"></Slider>
+        <Label BindingContext="{x:Reference saturationSlider}" Text="{Binding Value, Mode=OneWay, StringFormat='Saturation {0:F2}'}" HorizontalOptions="Center"></Label>
+        
     </StackLayout>
 </ContentPage>
