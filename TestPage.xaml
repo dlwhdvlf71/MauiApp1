@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MauiApp1.Class"
-             x:Class="MauiApp1.TestPage"
-             Title="TestPage" Padding="20">
+<ContentPage
+    x:Class="MauiApp1.TestPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1.Class"
+    xmlns:vm="clr-namespace:MauiApp1.ViewModel"
+    Title="TestPage"
+    Padding="20">
 
     <ContentPage.BindingContext>
-        <local:ColorViewModel Color="Beige"></local:ColorViewModel>
+        <vm:BoxViewModel x:Name="bvm" />
     </ContentPage.BindingContext>
-    
-    <StackLayout>
 
-        <BoxView HeightRequest="300" Color="{Binding Color}"></BoxView>
+    <ContentPage.Resources>
+        <Style TargetType="Slider">
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
 
-        <Slider x:Name="hueSlider" Value="{Binding Hue}"></Slider>
-        <Label BindingContext="{x:Reference hueSlider}" Text="{Binding Value, Mode=OneWay, StringFormat='Hue {0:F2}'}" HorizontalOptions="Center"></Label>
-        <Slider x:Name="luminositySlider" Value="{Binding Luminosity}"></Slider>
-        <Label BindingContext="{x:Reference luminositySlider}" Text="{Binding Value, Mode=OneWay, StringFormat='Luminosity {0:F2}'}" HorizontalOptions="Center"></Label>
-        <Slider x:Name="saturationSlider" Value="{Binding Saturation}"></Slider>
-        <Label BindingContext="{x:Reference saturationSlider}" Text="{Binding Value, Mode=OneWay, StringFormat='Saturation {0:F2}'}" HorizontalOptions="Center"></Label>
-        
+        <local:FloatToIntConverter x:Key="floatToIntConverter" />
+    </ContentPage.Resources>
+
+    <StackLayout Margin="10,0">
+
+        <BoxView
+            CornerRadius="{Binding cornerRadius}"
+            HeightRequest="{Binding height}"
+            HorizontalOptions="Center"
+            WidthRequest="{Binding width}"
+            Color="Black" />
+
+        <Slider
+            Maximum="1000"
+            Minimum="1"
+            Value="{Binding width}" />
+        <Label Text="{Binding width, Converter={StaticResource floatToIntConverter}, ConverterParameter=10, StringFormat='width : {0:X2}'}" />
+
+        <Slider
+            Maximum="1000"
+            Minimum="1"
+            Value="{Binding height}" />
+        <Label Text="{Binding height, Converter={StaticResource floatToIntConverter}, ConverterParameter=10, StringFormat='height : {0:#,##0'}" />
+
+        <Slider
+            Maximum="100"
+            Minimum="0"
+            Value="{Binding cornerRadius}" />
+        <Label Text="{Binding cornerRadius, Converter={StaticResource floatToIntConverter}, ConverterParameter=1, StringFormat='cornerRadius : {0:X2}'}" />
+
     </StackLayout>
 </ContentPage>
