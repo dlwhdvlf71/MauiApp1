@@ -6,49 +6,16 @@
     xmlns:local="clr-namespace:MauiApp1.Class"
     xmlns:vm="clr-namespace:MauiApp1.ViewModel"
     Title="TestPage"
-    Padding="20">
+    Padding="20"
+    BindingContext="{Binding Source={RelativeSource Mode=Self}, Path=DefaultViewModel}">
 
-    <ContentPage.BindingContext>
-        <vm:BoxViewModel x:Name="bvm" />
-    </ContentPage.BindingContext>
-
-    <ContentPage.Resources>
-        <Style TargetType="Slider">
-            <Setter Property="VerticalOptions" Value="Center" />
-        </Style>
-        <Style TargetType="Label">
-            <Setter Property="HorizontalTextAlignment" Value="Center" />
-        </Style>
-
-        <local:FloatToIntConverter x:Key="floatToIntConverter" />
-    </ContentPage.Resources>
 
     <StackLayout Margin="10,0">
 
         <BoxView
-            CornerRadius="{Binding cornerRadius}"
-            HeightRequest="{Binding height}"
-            HorizontalOptions="Center"
-            WidthRequest="{Binding width}"
-            Color="Black" />
-
-        <Slider
-            Maximum="1000"
-            Minimum="1"
-            Value="{Binding width}" />
-        <Label Text="{Binding width, Converter={StaticResource floatToIntConverter}, ConverterParameter=10, StringFormat='width : {0:X2}'}" />
-
-        <Slider
-            Maximum="1000"
-            Minimum="1"
-            Value="{Binding height}" />
-        <Label Text="{Binding height, Converter={StaticResource floatToIntConverter}, ConverterParameter=10, StringFormat='height : {0:#,##0'}" />
-
-        <Slider
-            Maximum="100"
-            Minimum="0"
-            Value="{Binding cornerRadius}" />
-        <Label Text="{Binding cornerRadius, Converter={StaticResource floatToIntConverter}, ConverterParameter=1, StringFormat='cornerRadius : {0:X2}'}" />
+            HeightRequest="{Binding Source={RelativeSource Mode=Self}, Path=WidthRequest}"
+            WidthRequest="200"
+            Color="Red" />
 
     </StackLayout>
 </ContentPage>
