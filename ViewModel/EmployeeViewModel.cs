@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace MauiApp1.ViewModel
@@ -12,16 +7,14 @@ namespace MauiApp1.ViewModel
     {
         public ObservableCollection<PersonViewModel> Employees { get; set; }
 
-        public ICommand DeleteCommand { get; private set; }
+        public ICommand DeleteEmployeeCommand { get; private set; }
 
         public EmployeeViewModel()
         {
-            DeleteCommand = new Command((employee) =>
+            DeleteEmployeeCommand = new Command((employee) =>
             {
                 Employees.Remove(employee as PersonViewModel);
             });
         }
-
-
     }
 }
