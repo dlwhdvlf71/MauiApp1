@@ -16,7 +16,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Name}" VerticalOptions="Center" />
+                            <Label Text="{Binding Name, TargetNullValue='unknown'}" VerticalOptions="Center" />
                             <Button
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type vm:EmployeeViewModel}}, Path=DeleteEmployeeCommand}"
                                 CommandParameter="{Binding}"

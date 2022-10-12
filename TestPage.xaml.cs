@@ -23,8 +23,14 @@ public partial class TestPage : ContentPage
             {
                 Name = "Park",
                 Age = 29
+            },
+            new PersonViewModel
+            {
+                Name = null,
+                Age = 31
             }
         }
+
     };
 
     public TestPage()
