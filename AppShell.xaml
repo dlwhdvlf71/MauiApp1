@@ -6,9 +6,36 @@
     xmlns:local="clr-namespace:MauiApp1"
     Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
+    <!--<ContentPage>
+        <ContentPage.Resources>
+            <Style TargetType="TabBar" />
+        </ContentPage.Resources>
+    </ContentPage>-->
+
+    <TabBar>
+        <!--<Tab Title="TimerPage">
+            <ShellContent ContentTemplate="{DataTemplate local:TimerPage}}" />
+        </Tab>-->
+        <Tab Title="Main">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Test">
+            <ShellContent ContentTemplate="{DataTemplate local:TestPage}" Shell.TabBarIsVisible="False" />
+        </Tab>
+        <Tab Title="Timer">
+            <ShellContent ContentTemplate="{DataTemplate local:TimerPage}" />
+        </Tab>
+    </TabBar>
+
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:TimerPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
+
+    <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />-->
+
 
 </Shell>
