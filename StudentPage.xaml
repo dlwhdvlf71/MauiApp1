@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.StudentPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="StudentPage">
+
+    <StackLayout Margin="0,50">
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            VerticalOptions="Center">
+            <Label Text="이름" VerticalOptions="Center" />
+            <Entry
+                MinimumWidthRequest="150"
+                Placeholder="Input Name"
+                WidthRequest="200" />
+        </StackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="나이" VerticalOptions="Center" />
+            <Entry
+                MinimumWidthRequest="150"
+                Placeholder="Input Name"
+                WidthRequest="200" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Button Text="등록" />
+        </HorizontalStackLayout>
+
+        <ListView >
+            
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
