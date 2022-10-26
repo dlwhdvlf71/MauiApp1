@@ -3,11 +3,33 @@
     x:Class="MauiApp1.XamlSample02"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:app="clr-namespace:MauiApp1"
     Title="XamlSample02">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="bgColor">#C0C0C0</Color>
+            <Color x:Key="fgColor">#0000AD</Color>
+            <x:Double x:Key="fontSize">22</x:Double>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <VerticalStackLayout>
         <Label
+            BackgroundColor="{DynamicResource bgColor}"
+            FontSize="{DynamicResource fontSize}"
             HorizontalOptions="Center"
             Text="Welcome to XamlSample02!"
+            TextColor="{DynamicResource fgColor}"
             VerticalOptions="Center" />
+
+        <Button
+            BackgroundColor="{DynamicResource bgColor}"
+            Clicked="OnLight_Clicked"
+            Text="Light" />
+        <Button
+            BackgroundColor="{DynamicResource bgColor}"
+            Clicked="OnDark_Clicked"
+            Text="Dark" />
     </VerticalStackLayout>
 </ContentPage>
