@@ -69,7 +69,9 @@ namespace MauiApp1.ViewModel
 
         public StudentViewModel()
         {
-            studentRepository = new();
+            //studentRepository = new();
+
+            studentRepository = new StudentRepository();
 
             InsertStudentCommand = new Command((model) =>
             {

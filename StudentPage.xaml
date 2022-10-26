@@ -3,7 +3,11 @@
     x:Class="MauiApp1.StudentPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="StudentPage">
+    xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
+    Title="StudentPage"
+    BindingContext="{Binding Source={RelativeSource Mode=Self}, Path=DefaultViewModel}">
+
+
 
     <StackLayout Margin="0,50">
         <StackLayout
@@ -25,12 +29,18 @@
                 WidthRequest="200" />
         </HorizontalStackLayout>
 
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Button Text="등록" />
-        </HorizontalStackLayout>
 
-        <ListView >
-            
+
+        <ListView ItemsSource="{Binding Students}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding Name}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
 
