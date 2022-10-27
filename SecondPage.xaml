@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.SecondPage"
-             Title="SecondPage">
+<ContentPage
+    x:Class="MauiApp1.SecondPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="SecondPage">
     <StackLayout>
-        <Label Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-        <Slider x:Name="slider" Maximum="100" Minimum="10" ></Slider>
-        <Label x:Name="label" BindingContext="{x:Reference slider}" Text="{Binding Value, StringFormat='size is {0:#,##0}'}" FontAttributes="Bold" FontSize="{Binding Path=Value}"></Label>
-        
+        <Label
+            HorizontalOptions="Center"
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center" />
+        <Slider
+            x:Name="slider"
+            Maximum="100"
+            Minimum="10" />
+        <Label
+            x:Name="label"
+            BindingContext="{x:Reference slider}"
+            FontAttributes="Bold"
+            FontSize="{Binding Path=Value}"
+            Text="{Binding Value, StringFormat='size is {0:#,##0}'}" />
+        <Label Style="{StaticResource infoLabeStyle}" Text="Second Page" />
     </StackLayout>
 </ContentPage>

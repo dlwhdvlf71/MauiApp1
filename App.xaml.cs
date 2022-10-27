@@ -6,13 +6,13 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		//MainPage = new AppShell();
+		MainPage = new AppShell();
 		//MainPage = new StudentPage();
 		//MainPage = new SecondPage();
 		//MainPage = new XamlSample01();
 		//MainPage = new MainPage();
 		//MainPage = new TestPage();
 
-		MainPage = new NavigationPage(new MainPage());
+		//MainPage = new NavigationPage(new MainPage());
 	}
 }

@@ -7,21 +7,19 @@
     Title="XamlSample02">
 
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="bgColor">#C0C0C0</Color>
-            <Color x:Key="fgColor">#0000AD</Color>
-            <x:Double x:Key="fontSize">22</x:Double>
-        </ResourceDictionary>
+        <ResourceDictionary />
     </ContentPage.Resources>
 
     <VerticalStackLayout>
         <Label
-            BackgroundColor="{DynamicResource bgColor}"
-            FontSize="{DynamicResource fontSize}"
             HorizontalOptions="Center"
-            Text="Welcome to XamlSample02!"
-            TextColor="{DynamicResource fgColor}"
-            VerticalOptions="Center" />
+            Style="{StaticResource infoLabeStyle}"
+            Text="Welcome to XamlSample02!" />
+
+        <Label
+            HorizontalOptions="Center"
+            Style="{StaticResource infoLabeStyle}"
+            Text="Welcome to XamlSample02! - test" />
 
         <Button
             BackgroundColor="{DynamicResource bgColor}"

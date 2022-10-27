@@ -24,9 +24,11 @@ public partial class XamlSample02 : ContentPage
         Resources["bgColor"] = Colors.Silver;
     }
 
-    private void OnLight_Clicked(object sender, EventArgs e)
+    private async void OnLight_Clicked(object sender, EventArgs e)
     {
-        Resources["fgColor"] = Colors.Silver;
-        Resources["bgColor"] = Colors.Navy;
+        //Resources["fgColor"] = Colors.Silver;
+        //Resources["bgColor"] = Colors.Navy;
+
+        await Navigation.PushAsync(new SecondPage());
     }
 }
