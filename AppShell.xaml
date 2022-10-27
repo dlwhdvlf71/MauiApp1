@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:flyout="clr-namespace:MauiApp1.FlyoutNavigation.Pages"
     xmlns:local="clr-namespace:MauiApp1"
+    xmlns:stackNavigation="clr-namespace:MauiApp1.StackNavigation.Pages"
     FlyoutIcon="dotnet_bot.svg">
 
     <Shell.FlyoutHeader>
@@ -13,6 +14,10 @@
         </Grid>
     </Shell.FlyoutHeader>
 
+    <FlyoutItem Title="StackNavigation">
+        <ShellContent Title="Main Page" ContentTemplate="{DataTemplate stackNavigation:MainPage}" />
+    </FlyoutItem>
+
     <FlyoutItem Title="Main By Item">
         <ShellContent
             Title="Main Page"
@@ -20,7 +25,19 @@
             Route="MainPage" />
     </FlyoutItem>
 
-    <FlyoutItem Title="First By Item">
+    <FlyoutItem Title="Number Page">
+        <ShellContent
+            Title="First Page"
+            ContentTemplate="{DataTemplate flyout:FirstPage}"
+            Route="FirstPage" />
+
+        <ShellContent
+            Title="Second Page"
+            ContentTemplate="{DataTemplate flyout:SecondPage}"
+            Route="SecondPage" />
+    </FlyoutItem>
+
+    <!--<FlyoutItem Title="First By Item">
         <ShellContent
             Title="First Page"
             ContentTemplate="{DataTemplate flyout:FirstPage}"
@@ -32,7 +49,21 @@
             Title="Second Page"
             ContentTemplate="{DataTemplate flyout:SecondPage}"
             Route="SecondPage" />
-    </FlyoutItem>
+    </FlyoutItem>-->
+
+    <!--<TabBar>
+        <Tab Title="Main">
+            <ShellContent ContentTemplate="{DataTemplate flyout:MainPage}" />
+        </Tab>
+        <Tab Title="First">
+            <ShellContent ContentTemplate="{DataTemplate flyout:FirstPage}" />
+        </Tab>
+        <Tab Title="Second">
+            <ShellContent ContentTemplate="{DataTemplate flyout:SecondPage}" />
+        </Tab>
+    </TabBar>-->
+
+
 
     <!--<ContentPage>
         <ContentPage.Resources>

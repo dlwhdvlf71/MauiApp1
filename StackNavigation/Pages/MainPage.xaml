@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.StackNavigation.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="MainPage">
+    <VerticalStackLayout>
+        <Label
+            HorizontalOptions="Center"
+            Text="Welcome to MainPage!"
+            VerticalOptions="Center" />
+        <Button x:Name="firstButton" Text="First" />
+        <Button x:Name="secondButton" Text="Second" />
+    </VerticalStackLayout>
+</ContentPage>
