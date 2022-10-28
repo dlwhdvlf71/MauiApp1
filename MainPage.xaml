@@ -11,10 +11,14 @@
             VerticalOptions="Center">
 
             <Image
+                x:Name="dotnetBotImage"
                 HeightRequest="200"
                 HorizontalOptions="Center"
+                Opacity="{Binding Path=Value, Source={x:Reference sliderImage}}"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 Source="dotnet_bot.png" />
+
+            <Slider x:Name="sliderImage" />
 
             <Label
                 FontSize="32"

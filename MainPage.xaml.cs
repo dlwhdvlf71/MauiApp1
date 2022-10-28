@@ -7,7 +7,8 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+        //InitBinding();
+    }
 
     private void OnCounterClicked(object sender, EventArgs e)
     {
@@ -24,6 +25,15 @@ public partial class MainPage : ContentPage
     private async void OnTimerClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new XamlSample02());
+    }
+
+    public void InitBinding()
+    {
+        dotnetBotImage.SetBinding(Image.RotationProperty, new Binding("Value", source:sliderImage));
+
+
+        //dotnetBotImage.BindingContext = sliderImage;
+        //dotnetBotImage.SetBinding(Image.RotationProperty, "Value");   
     }
 }
 
