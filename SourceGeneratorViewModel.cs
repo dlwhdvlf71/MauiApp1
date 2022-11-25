@@ -3,6 +3,10 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace MauiApp1
 {
+    /*
+     * public partial 클래스로 만들어야 한다.
+     * ObservaleObject 받아야한다.
+     * */
     public partial class SourceGeneratorViewModel : ObservableObject
     {
         public SourceGeneratorViewModel()
