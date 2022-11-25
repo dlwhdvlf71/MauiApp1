@@ -2,50 +2,23 @@
 <ContentPage
     x:Class="MauiApp1.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25"
-            VerticalOptions="Center">
+    <ContentPage.BindingContext>
+        <local:SourceGeneratorViewModel />
+    </ContentPage.BindingContext>
 
-            <Image
-                x:Name="dotnetBotImage"
-                HeightRequest="200"
-                HorizontalOptions="Center"
-                Opacity="{Binding Path=Value, Source={x:Reference sliderImage}}"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="dotnet_bot.png" />
+    <VerticalStackLayout Padding="10" Spacing="20">
 
-            <Slider x:Name="sliderImage" />
+        <Label
+            FontSize="24"
+            HorizontalOptions="Center"
+            Text="{Binding Name}"
+            VerticalOptions="Center" />
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Hello, World!" />
+        <Button Command="{Binding ChangeNameCommand}" Text="Change Name By Command" />
 
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level2"
-                Text="Welcome to .NET Multi-platform App UI" />
-
-            <Button
-                x:Name="timerBtn"
-                Clicked="OnTimerClicked"
-                Text="Timer Page" />
-
-            <Button
-                x:Name="CounterBtn"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+    </VerticalStackLayout>
 
 </ContentPage>
