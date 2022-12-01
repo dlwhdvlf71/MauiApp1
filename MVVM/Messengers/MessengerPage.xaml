@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.MVVM.Messengers.MessengerPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:msg="clr-namespace:MauiApp1.MVVM.Messengers"
+    Title="MessengerPage"
+    Padding="20">
+
+    <ContentPage.BindingContext>
+        <msg:MessengerViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Margin="20" Padding="20">
+        <Label
+            FontSize="30"
+            HorizontalOptions="Center"
+            Text="{Binding Name}"
+            TextColor="Blue"
+            VerticalOptions="Center" />
+
+        <Button Command="{Binding ChangeNameCommand}" Text="Change Name" />
+        <Button Command="{Binding RegisterCommand}" Text="Register strong" />
+        <Button Command="{Binding UnregisterCommand}" Text="Unregister string" />
+
+        <Label
+            FontSize="30"
+            HorizontalOptions="Center"
+            Text="{Binding User.Name}"
+            TextColor="Red"
+            VerticalOptions="Center" />
+        <Button Command="{Binding User.ChangeNameCommand}" Text="Change User Name and Send" />
+        <Button Command="{Binding User.StrongChangeNameCommand}" Text="Strong Change User Name and Send" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,4 +1,6 @@
-﻿namespace MauiApp1;
+﻿using MauiApp1.MVVM.Messengers;
+
+namespace MauiApp1;
 
 public partial class App : Application
 {
@@ -14,7 +16,7 @@ public partial class App : Application
 		//MainPage = new TestPage();
 		//MainPage = new NavigationPage(new MainPage());
 
-		MainPage = new CounterPage();
+		MainPage = new MessengerPage();
 
 	}
 }
