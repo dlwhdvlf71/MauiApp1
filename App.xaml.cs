@@ -10,9 +10,11 @@ public partial class App : Application
 		//MainPage = new StudentPage();
 		//MainPage = new SecondPage();
 		//MainPage = new XamlSample01();
-		MainPage = new MainPage();
+		//MainPage = new MainPage();
 		//MainPage = new TestPage();
-
 		//MainPage = new NavigationPage(new MainPage());
+
+		MainPage = new CounterPage();
+
 	}
 }

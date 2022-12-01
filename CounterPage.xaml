@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.CounterPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1.MVVM.Commanding"
+    Title="CounterPage">
+
+    <ContentPage.BindingContext>
+        <local:CounterViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Padding="20">
+        <Label
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="{Binding Counter}"
+            VerticalOptions="Center" />
+        <Label
+            FontSize="20"
+            HorizontalOptions="Center"
+            Text="{Binding IncrementCommandAsnyc.ExecutionTask.Status}"
+            TextColor="Red"
+            VerticalOptions="Center" />
+        <Button Command="{Binding IncrementCommandAsnyc}" Text="Increment" />
+        <Button Command="{Binding DecrementCommand}" Text="Decrement" />
+
+        <ActivityIndicator IsRunning="{Binding IncrementCommandAsnyc.IsRunning}" />
+    </VerticalStackLayout>
+</ContentPage>

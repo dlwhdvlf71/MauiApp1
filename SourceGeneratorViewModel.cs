@@ -5,7 +5,7 @@ namespace MauiApp1
 {
     /*
      * public partial 클래스로 만들어야 한다.
-     * ObservaleObject 받아야한다.
+     * ObservableObject 는 속송변경을 알려준다.
      * */
     public partial class SourceGeneratorViewModel : ObservableObject
     {
@@ -25,6 +25,11 @@ namespace MauiApp1
         
 
         [RelayCommand]
-        private void ChangeName() => Name = "Change New Name";
+        private void ChangeName() => Name = $"{DateTime.Now} Change New Name";
+
+        [RelayCommand]
+        private async void Move() => await Shell.Current.GoToAsync("numberpage");
+
+        
     }
 }
