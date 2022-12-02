@@ -3,6 +3,7 @@
     x:Class="MauiApp1.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:di="clr-namespace:MauiApp1.DependencyInjection"
     xmlns:flyout="clr-namespace:MauiApp1.FlyoutNavigation.Pages"
     xmlns:local="clr-namespace:MauiApp1"
     xmlns:stackNavigation="clr-namespace:MauiApp1.StackNavigation.Pages"
@@ -98,7 +99,10 @@
         ContentTemplate="{DataTemplate flyout:MainPage}"
         Route="MainPage" />-->
 
-
+    <ShellContent
+        Title="DI"
+        ContentTemplate="{DataTemplate di:IncrementCounterPage}"
+        Route="MainPage" />
 
 
 </Shell>

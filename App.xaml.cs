@@ -8,7 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		//MainPage = new AppShell();
+		MainPage = new AppShell();
 		//MainPage = new StudentPage();
 		//MainPage = new SecondPage();
 		//MainPage = new XamlSample01();
@@ -16,7 +16,7 @@ public partial class App : Application
 		//MainPage = new TestPage();
 		//MainPage = new NavigationPage(new MainPage());
 
-		MainPage = new MessengerPage();
+		//MainPage = new MessengerPage();
 
 	}
 }

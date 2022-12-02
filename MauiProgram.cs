@@ -1,4 +1,7 @@
-﻿namespace MauiApp1;
+﻿using MauiApp1.DependencyInjection;
+using MauiApp1.InjectableServices;
+
+namespace MauiApp1;
 
 public static class MauiProgram
 {
@@ -13,6 +16,23 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+		//builder.Services.AddTransient<IHelloWorldClass, HelloWorldlClass>();
+		//builder.Services.AddTransient<IncrementCOunterViewModel>();
+		//builder.Services.AddTransient<IncrementCounterPage>();
+
+		builder.Services.Scan(scan => scan
+		.FromAssemblyOf<ITransientService>()
+		.AddClasses(classes => classes.AssignableTo<ITransientService>())
+		.AsSelfWithInterfaces()
+		.WithTransientLifetime()
+        .AddClasses(classes => classes.AssignableTo<IScopedService>())
+        .AsSelfWithInterfaces()
+        .WithScopedLifetime()
+        .AddClasses(classes => classes.AssignableTo<ISingletonService>())
+        .AsSelfWithInterfaces()
+        .WithSingletonLifetime()
+        );
+
+        return builder.Build();
 	}
 }
