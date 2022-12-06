@@ -3,13 +3,14 @@
     x:Class="MauiApp1.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ct="clr-namespace:MauiApp1.CommunityToolkit"
     xmlns:di="clr-namespace:MauiApp1.DependencyInjection"
     xmlns:flyout="clr-namespace:MauiApp1.FlyoutNavigation.Pages"
     xmlns:local="clr-namespace:MauiApp1"
     xmlns:stackNavigation="clr-namespace:MauiApp1.StackNavigation.Pages"
     FlyoutIcon="dotnet_bot.svg">
 
-    <Shell.FlyoutHeader>
+    <!--<Shell.FlyoutHeader>
         <Grid BackgroundColor="DarkSlateBlue" HeightRequest="100">
             <Label Text="Main By Header" />
         </Grid>
@@ -36,7 +37,9 @@
             Title="Second Page"
             ContentTemplate="{DataTemplate flyout:SecondPage}"
             Route="SecondPage" />
-    </FlyoutItem>
+    </FlyoutItem>-->
+
+
 
     <!--<FlyoutItem Title="First By Item">
         <ShellContent
@@ -101,7 +104,7 @@
 
     <ShellContent
         Title="DI"
-        ContentTemplate="{DataTemplate di:IncrementCounterPage}"
+        ContentTemplate="{DataTemplate ct:SnackBarPage}"
         Route="MainPage" />
 
 
