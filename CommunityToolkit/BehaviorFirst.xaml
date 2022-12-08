@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.CommunityToolkit.BehaviorFirst"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="clr-namespace:MauiApp1.CommunityToolkit"
+    Title="BehaviorFirst">
+    <ContentPage.BindingContext>
+        <vm:BehavoirFirstViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="FontAttributes" Value="Italic" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Blue" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Green" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Spacing="10">
+        <Entry Placeholder="Enter Value" PlaceholderColor="MistyRose">
+            <Entry.Behaviors>
+                <toolkit:CharactersValidationBehavior
+                    CharacterType="Digit"
+                    Flags="ValidateOnValueChanged"
+                    InvalidStyle="{StaticResource Key=InvalidEntryStyle}"
+                    MinimumCharacterTypeCount="2"
+                    ValidStyle="{StaticResource ValidEntryStyle}" />
+            </Entry.Behaviors>
+        </Entry>
+
+        <Entry Placeholder="Enter Email" PlaceholderColor="DarkViolet">
+            <Entry.Behaviors>
+                <toolkit:EmailValidationBehavior
+                    Flags="ValidateOnValueChanged"
+                    InvalidStyle="{StaticResource InvalidEntryStyle}"
+                    ValidStyle="{StaticResource ValidEntryStyle}" />
+            </Entry.Behaviors>
+        </Entry>
+
+        <Label Text="{Binding Message}" />
+        <Button Text="Click !!">
+            <Button.Behaviors>
+                <toolkit:EventToCommandBehavior Command="{Binding ClickCommand}" EventName="Clicked" />
+            </Button.Behaviors>
+        </Button>
+
+        <Entry
+            IsPassword="True"
+            Placeholder="Enter Password"
+            PlaceholderColor="OrangeRed">
+            <Entry.Behaviors>
+                <toolkit:MaskedBehavior Mask="XXXXX-XX-XXXXX" />
+            </Entry.Behaviors>
+        </Entry>
+
+    </VerticalStackLayout>
+</ContentPage>

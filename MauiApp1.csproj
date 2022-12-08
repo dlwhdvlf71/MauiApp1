@@ -62,6 +62,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="CommunityToolkit\BehaviorFirst.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CommunityToolkit\SnackBarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
