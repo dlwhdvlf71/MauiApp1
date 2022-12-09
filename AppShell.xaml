@@ -104,7 +104,7 @@
 
     <ShellContent
         Title="DI"
-        ContentTemplate="{DataTemplate ct:BehaviorFirst}"
+        ContentTemplate="{DataTemplate ct:BehaviorSecond}"
         Route="MainPage" />
 
 

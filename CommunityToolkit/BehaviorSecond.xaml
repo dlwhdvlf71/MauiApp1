@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MauiApp1.CommunityToolkit.BehaviorSecond"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ct="clr-namespace:MauiApp1.CommunityToolkit"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="BehaviorSecond">
+    <ContentPage.BindingContext>
+        <ct:BehaviorSecondViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="InvalidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="FontAttributes" Value="Italic" />
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style x:Key="ValidEntryStyle" TargetType="Entry">
+            <Setter Property="TextColor" Value="Green" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="Blue" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Spacing="10">
+        <Entry MaxLength="10" Placeholder="MaxLength is 10">
+            <Entry.Behaviors>
+                <toolkit:MaxLengthReachedBehavior Command="{Binding MaxLengthReachedCommand}" />
+            </Entry.Behaviors>
+        </Entry>
+        <Label Text="{Binding Message}" />
+
+        <Entry IsPassword="True">
+            <Entry.Behaviors>
+                <toolkit:MultiValidationBehavior
+                    Flags="ValidateOnValueChanged"
+                    InvalidStyle="{StaticResource InvalidEntryStyle}"
+                    ValidStyle="{StaticResource ValidEntryStyle}">
+
+                    <toolkit:CharactersValidationBehavior
+                        x:Name="DigitValidation"
+                        toolkit:MultiValidationBehavior.Error="1 digit"
+                        CharacterType="Digit"
+                        MinimumCharacterTypeCount="1" />
+
+                    <toolkit:CharactersValidationBehavior
+                        x:Name="SymbolValidation"
+                        toolkit:MultiValidationBehavior.Error="1 symbol"
+                        CharacterType="NonAlphanumericSymbol"
+                        MinimumCharacterTypeCount="1" />
+
+                    <toolkit:CharactersValidationBehavior
+                        x:Name="AnyValidation"
+                        toolkit:MultiValidationBehavior.Error="8 char"
+                        CharacterType="Any"
+                        MinimumCharacterTypeCount="8" />
+
+                </toolkit:MultiValidationBehavior>
+                <toolkit:MaskedBehavior Mask="XXXXXXXX" />
+            </Entry.Behaviors>
+        </Entry>
+
+        <Entry Keyboard="Numeric" Placeholder="Numeric Validation">
+            <Entry.Behaviors>
+                <toolkit:NumericValidationBehavior
+                    Flags="ValidateOnValueChanged"
+                    InvalidStyle="{StaticResource InvalidEntryStyle}"
+                    MaximumDecimalPlaces="2"
+                    MaximumValue="100.0"
+                    MinimumValue="1.0"
+                    ValidStyle="{StaticResource ValidEntryStyle}" />
+            </Entry.Behaviors>
+
+        </Entry>
+
+
+    </VerticalStackLayout>
+</ContentPage>
