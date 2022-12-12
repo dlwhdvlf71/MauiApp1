@@ -77,6 +77,30 @@
 
         </Entry>
 
+        <VerticalStackLayout>
+            <Label Text="The ProgressBarAnimationBehavior is a behavior that animates a ProgressBar" />
+            <Button Command="{Binding ExecuteCommand}" Text="Execute" />
+            <ProgressBar>
+                <ProgressBar.Behaviors>
+                    <toolkit:ProgressBarAnimationBehavior
+                        x:Name="ProgressBarAnimationBehaviorToolkit"
+                        Length="250"
+                        Progress="{Binding Progress}" />
+                </ProgressBar.Behaviors>
+            </ProgressBar>
+        </VerticalStackLayout>
+
+        <Entry Placeholder="RequiredStringValidationBehavior">
+            <Entry.Behaviors>
+                <toolkit:RequiredStringValidationBehavior
+                    ExactMatch="False"
+                    Flags="ValidateOnValueChanged"
+                    InvalidStyle="{StaticResource InvalidEntryStyle}"
+                    RequiredString="012340"
+                    ValidStyle="{StaticResource ValidEntryStyle}" />
+            </Entry.Behaviors>
+        </Entry>
+
 
     </VerticalStackLayout>
 </ContentPage>
