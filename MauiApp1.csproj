@@ -68,6 +68,9 @@
 	  <MauiXaml Update="CommunityToolkit\BehaviorSecond.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="CommunityToolkit\BehaviorThird.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CommunityToolkit\SnackBarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
